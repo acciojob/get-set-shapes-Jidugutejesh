@@ -1,38 +1,38 @@
 //complete this code
-class Rectangle{
-    #_width;
-    #_height;
-    constructor(width,height){
-        this.#_width = width;
-        this.#_height = height
+class Rectangle {
+  constructor(width, height) {
+    if (width <= 0 || height <= 0) {
+      throw new Error("Width and Height must be positive integers");
     }
+    this._width = width;
+    this._height = height;
+  }
 
+  get width() {
+    return this._width;
+  }
 
-    get width(){
-        return this.#_width
-    }
+  get height() {
+    return this._height;
+  }
 
-    get height(){
-        return this.#_height
-    }
-
-    getArea(){
-        return this.#_width * this.#_height
-    }
+  getArea() {
+    return this._width * this._height;
+  }
 }
 
-class Square extends Rectangle{
-    constructor(side){
-        super(side,side)
-        this.side = side
+class Square extends Rectangle {
+  constructor(side) {
+    if (side <= 0) {
+      throw new Error("Side must be a positive integer");
     }
+    super(side, side); // Call parent constructor with equal width and height
+    this._side = side;
+  }
 
-    getPerimeter(){
-        return 4 * this.side
-    }
-    getArea(){
-        return 5
-    }
+  getPerimeter() {
+    return this._side * 4;
+  }
 }
 
 // Do not change the code below this line
